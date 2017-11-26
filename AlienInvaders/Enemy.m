@@ -19,8 +19,10 @@ int enemyColumns = 5;
 
 -(void) dropBomb {
     
-    EnemyBullet *newBullet = [[EnemyBullet alloc]init];
-    [newBullet fireBullet:self.gameView :self.enemyList];
+    //pick a random enemy and drop a bomb from their position
+    if(self.enemiesBullet == NULL || self.enemiesBullet.isActive == false){
+        self.enemiesBullet = [[[EnemyBullet alloc]init] fireBullet: self.gameView: self.enemyList];
+    }
     
 }
 

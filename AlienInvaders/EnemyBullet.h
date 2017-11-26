@@ -15,8 +15,8 @@
 @property UIImageView *bombView;
 @property (strong) NSTimer *bombTimer;
 @property UIView *gameView;
+@property BOOL isActive;
 
-
--(void) fireBullet: (UIView *) gameView :(NSArray *) enemyList;
+-(EnemyBullet *) fireBullet: (UIView *) gameView :(NSArray *) enemyList;
 
 @end

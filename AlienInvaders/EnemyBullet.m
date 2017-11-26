@@ -15,6 +15,7 @@
     self.bombRect = CGRectOffset(self.bombRect, 0, 5);
     self.bombView.frame = self.bombRect;
     if(self.bombRect.origin.y > 440) {
+        self.isActive = false;
         [self.bombTimer invalidate];
         self.bombTimer = nil;
         [self.bombView removeFromSuperview];
@@ -22,8 +23,9 @@
     
 }
 
--(void) fireBullet:(UIView *) gameView :(NSArray *) enemyList {
+-(EnemyBullet *) fireBullet:(UIView *) gameView :(NSArray *) enemyList {
     
+    self.isActive = true;
     int randEnemy = (int)(random() % enemyList.count);
     UIImageView *enemyView = enemyList[randEnemy];
     self.gameView = gameView;
@@ -49,6 +51,8 @@
     [self.bombView startAnimating];
     
     self.bombTimer = [NSTimer scheduledTimerWithTimeInterval:.05 target:self selector:@selector(moveBomb) userInfo:nil repeats:YES];
+    
+    return self;
 }
 
 @end

@@ -31,6 +31,9 @@
     
     BOOL isConnecting = CGRectIntersectsRect(self.enemies.enemiesBullet.bombRect, self.playerOne.playerRect);
     
+    NSLog(@"bombRect: %@", NSStringFromCGRect(self.enemies.enemiesBullet.bombRect));
+    NSLog(@"playerRect: %@", NSStringFromCGRect(self.playerOne.playerRect));
+    
     if(isConnecting == true) {
         [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(endScreen) userInfo:nil repeats:NO];
         [self changeState: RELOADING];
